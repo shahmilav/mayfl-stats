@@ -1,0 +1,38 @@
+[
+
+  { "player": "KK", "team": "MM" },
+  { "player": "Sagar Gutti", "team": "MM" },
+  { "player": "Varun Panalla", "team": "MM" },
+  { "player": "Aditya Pochinapeddi", "team": "MM" },
+  { "player": "Keshav Batra", "team": "MM" },
+  { "player": "Rohan Hota", "team": "MM" },
+
+  { "player": "Chase Lau", "team": "SFFS" },
+  { "player": "Adi Mohan", "team": "SFFS" },
+  { "player": "Eshan Iyer", "team": "SFFS" },
+  { "player": "Pranshu Agarwal", "team": "SFFS" },
+  { "player": "Sai Polepalle", "team": "SFFS" },
+  { "player": "Milav Shah", "team": "SFFS" },
+
+  { "player": "Ben Goodfriend", "team": "TAT" },
+  { "player": "Maanas Devulapalli", "team": "TAT" },
+  { "player": "Abeer Singh", "team": "TAT" },
+  { "player": "John Bridgeford", "team": "TAT" },
+  { "player": "Brian Lu", "team": "TAT" },
+  { "player": "Nick Scarpa", "team": "TAT" },
+
+  { "player": "Pranshu Desai", "team": "PGP" },
+  { "player": "Dwij Sheth", "team": "PGP" },
+  { "player": "Wallace Snow", "team": "PGP" },
+  { "player": "Manu Tadapathri", "team": "PGP" },
+  { "player": "Jesh Selvaraj", "team": "PGP" },
+  { "player": "Archyut Ravindran", "team": "PGP" },
+
+  { "player": "Adi Rath", "team": "SSQT" },
+  { "player": "Runbier Sabhlok", "team": "SSQT" },
+  { "player": "Shubham Sharma", "team": "SSQT" },
+  { "player": "Abhi Naine", "team": "SSQT" },
+  { "player": "Andrew Lin", "team": "SSQT" },
+  { "player": "Lokesh Kolisetty", "team": "SSQT" }
+]
+
