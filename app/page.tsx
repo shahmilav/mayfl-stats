@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 
-type CategoryKey = "passing" | "rushing" | "receiving" | "defensive";
+type CategoryKey = "passing" | "rushing" | "receiving" | "defensive" | "combined";
 type ViewMode = "week" | "overall";
 type SortDirection = "asc" | "desc";
 type ColumnType = "text" | "number";
@@ -108,7 +108,7 @@ const categoryDefinitions: Record<CategoryKey, CategoryDefinition> = {
       { key: "carries", label: "Carries", type: "number", aggregation: "sum" },
       { key: "rushYards", label: "Rush Yards", type: "number", aggregation: "sum" },
       { key: "touchdowns", label: "Touchdowns", type: "number", aggregation: "sum" },
-      { key: "longest", label: "LONGEST", type: "number", aggregation: "max" },
+      { key: "longest", label: "Longest", type: "number", aggregation: "max" },
       {
         key: "yardsPerCarry",
         label: "Yards Per Carry",
@@ -149,12 +149,12 @@ const categoryDefinitions: Record<CategoryKey, CategoryDefinition> = {
     columns: [
       { key: "player", label: "Player", type: "text", aggregation: "text" },
       { key: "receptions", label: "Receptions", type: "number", aggregation: "sum" },
-      { key: "receptionYards", label: "Reception Yards", type: "number", aggregation: "sum" },
+      { key: "receptionYards", label: "Receiving Yards", type: "number", aggregation: "sum" },
       { key: "touchdowns", label: "Touchdowns", type: "number", aggregation: "sum" },
-      { key: "longest", label: "LONGEST", type: "number", aggregation: "max" },
+      { key: "longest", label: "Longest", type: "number", aggregation: "max" },
       {
         key: "yardsPerReception",
-        label: "Yards Per reception",
+        label: "Yards Per Reception",
         type: "number",
         aggregation: "ratio",
         ratio: { numerator: "receptionYards", denominator: "receptions", decimals: 1 },
@@ -167,7 +167,7 @@ const categoryDefinitions: Record<CategoryKey, CategoryDefinition> = {
         ratio: { numerator: "receptionYards", denominator: "gamesPlayed", decimals: 1 },
       },
       { key: "gamesPlayed", label: "Games Played", type: "number", aggregation: "sum" },
-      { key: "fantasyPts", label: "Total Receiving Fantasy Pts", type: "number", aggregation: "sum" },
+      { key: "fantasyPts", label: "Receiving Fantasy Pts", type: "number", aggregation: "sum" },
     ],
     starterEntries: [
       {
@@ -186,6 +186,14 @@ const categoryDefinitions: Record<CategoryKey, CategoryDefinition> = {
         },
       },
     ],
+  },
+  combined: {
+    label: "Fantasy Leaderboard",
+    columns: [
+      { key: "player", label: "Player", type: "text", aggregation: "text" },
+      { key: "fantasyPts", label: "Fantasy Pts", type: "number", aggregation: "sum" },
+    ],
+    starterEntries: [],
   },
   defensive: {
     label: "Defensive",
@@ -216,6 +224,8 @@ const categoryDefinitions: Record<CategoryKey, CategoryDefinition> = {
   },
 };
 
+const editableCategories: CategoryKey[] = ["passing", "rushing", "receiving", "defensive"];
+
 type PersistedState = {
   players: string[];
   currentWeek: string;
@@ -240,6 +250,7 @@ function cloneEntries(entries: Record<CategoryKey, StatEntry[]>) {
     rushing: entries.rushing.map((entry) => ({ ...entry, values: { ...entry.values } })),
     receiving: entries.receiving.map((entry) => ({ ...entry, values: { ...entry.values } })),
     defensive: entries.defensive.map((entry) => ({ ...entry, values: { ...entry.values } })),
+    combined: (entries.combined ?? []).map((entry) => ({ ...entry, values: { ...entry.values } })),
   } satisfies Record<CategoryKey, StatEntry[]>;
 }
 
@@ -249,6 +260,7 @@ function buildInitialState(): PersistedState {
     rushing: categoryDefinitions.rushing.starterEntries,
     receiving: categoryDefinitions.receiving.starterEntries,
     defensive: categoryDefinitions.defensive.starterEntries,
+    combined: categoryDefinitions.combined.starterEntries,
   };
 
   const initialPlayers = uniqueNames([
@@ -540,6 +552,7 @@ export default function Home() {
               rushing: [],
               receiving: [],
               defensive: [],
+              combined: [],
             };
 
             for (const cat of Object.keys(loaded) as CategoryKey[]) {
@@ -581,6 +594,7 @@ export default function Home() {
         rushing: [],
         receiving: [],
         defensive: [],
+        combined: [],
       };
 
       for (const cat of Object.keys(entriesToStrip) as CategoryKey[]) {
@@ -641,6 +655,8 @@ export default function Home() {
 
   const definition = categoryDefinitions[activeCategory];
   const playerColumns = definition.columns.filter((column) => column.key !== "player");
+  const currentSortForActive =
+    sortState[activeCategory] ?? { key: definition.columns[0]?.key ?? "player", direction: "asc" as SortDirection };
   // inline draft computation removed (use modal for multi-category adds)
 
   function displayPlayerLabel(player: string) {
@@ -669,6 +685,33 @@ export default function Home() {
 
   const visibleRows = filteredPlayers
     .map((player) => {
+      if (activeCategory === "combined") {
+        // combined is derived from the other editable categories
+        if (viewMode === "week") {
+          let total = 0;
+          for (const cat of editableCategories) {
+            const e = findPlayerEntry(entries[cat], currentWeek, player);
+            total += toNumber(e?.values?.fantasyPts ?? "0");
+          }
+
+          const row = { player, fantasyPts: formatNumber(total, 2) } as Record<string, string>;
+          return isBlankPlayerRow(row, categoryDefinitions.combined.columns) ? null : row;
+        }
+
+        // overall: sum fantasy pts across all categories and all weeks
+        let total = 0;
+        for (const cat of editableCategories) {
+          for (const e of entries[cat]) {
+            if (e.player === player) {
+              total += toNumber(e.values?.fantasyPts ?? "0");
+            }
+          }
+        }
+
+        const row = { player, fantasyPts: formatNumber(total, 2) } as Record<string, string>;
+        return isBlankPlayerRow(row, categoryDefinitions.combined.columns) ? null : row;
+      }
+
       if (viewMode === "week") {
         const weekEntry = findPlayerEntry(entries[activeCategory], currentWeek, player);
         const row = {
@@ -686,9 +729,13 @@ export default function Home() {
     })
     .filter((row): row is Record<string, string> => row !== null)
     .sort((left, right) => {
-      const currentSort = sortState[activeCategory];
-      const column = definition.columns.find((item) => item.key === currentSort.key) ?? definition.columns[0];
-      return compareRows(left, right, column, currentSort.direction);
+      if (activeCategory === "combined") {
+        // sort by fantasyPts descending
+        return toNumber(right["fantasyPts"] ?? "0") - toNumber(left["fantasyPts"] ?? "0");
+      }
+
+      const column = definition.columns.find((item) => item.key === currentSortForActive.key) ?? definition.columns[0];
+      return compareRows(left, right, column, currentSortForActive.direction);
     });
 
   function upsertEntry(category: CategoryKey, week: string, player: string, values: Record<string, string>) {
@@ -727,7 +774,7 @@ export default function Home() {
 
       // if gamesPlayed was set, sync it to all other categories
       if (gamesPlayedValue.trim() !== "") {
-        for (const otherCat of Object.keys(categoryDefinitions) as CategoryKey[]) {
+        for (const otherCat of editableCategories) {
           if (otherCat === category) continue;
 
           const otherEntries = [...current[otherCat]];
@@ -774,7 +821,7 @@ export default function Home() {
 
   function handleSort(columnKey: string) {
     setSortState((current) => {
-      const currentSort = current[activeCategory];
+      const currentSort = current[activeCategory] ?? { key: definition.columns[0]?.key ?? "player", direction: "asc" as SortDirection };
 
       return {
         ...current,
@@ -797,6 +844,7 @@ export default function Home() {
   const [modalPlayer, setModalPlayer] = useState<string>(players[0] ?? "");
   const [modalWeek, setModalWeek] = useState<string>(currentWeek);
   const [modalGamesPlayed, setModalGamesPlayed] = useState<string>("");
+  const [modalTab, setModalTab] = useState<CategoryKey>(editableCategories[0]);
   const emptyCategoryValues = (cat: CategoryKey) => {
     const cols = categoryDefinitions[cat].columns.filter(
       (c) => c.key !== "player" && c.key !== "fantasyPts" && c.key !== "gamesPlayed" && c.aggregation !== "ratio",
@@ -809,6 +857,7 @@ export default function Home() {
     rushing: emptyCategoryValues("rushing"),
     receiving: emptyCategoryValues("receiving"),
     defensive: emptyCategoryValues("defensive"),
+    combined: emptyCategoryValues("combined"),
   }));
 
   function hasEditAccess() {
@@ -824,11 +873,13 @@ export default function Home() {
     setModalPlayer(players[0] ?? "");
     setModalWeek(currentWeek);
     setModalGamesPlayed("");
+    setModalTab(editableCategories[0]);
     setModalValues({
       passing: emptyCategoryValues("passing"),
       rushing: emptyCategoryValues("rushing"),
       receiving: emptyCategoryValues("receiving"),
       defensive: emptyCategoryValues("defensive"),
+      combined: emptyCategoryValues("combined"),
     });
     setIsModalOpen(true);
   }
@@ -839,6 +890,7 @@ export default function Home() {
     const w = week ?? currentWeek;
     setModalWeek(w);
     loadModalValuesFor(player, w);
+    setModalTab(editableCategories[0]);
     setIsModalOpen(true);
   }
 
@@ -876,10 +928,11 @@ export default function Home() {
       rushing: emptyCategoryValues("rushing"),
       receiving: emptyCategoryValues("receiving"),
       defensive: emptyCategoryValues("defensive"),
+      combined: emptyCategoryValues("combined"),
     };
     let gamesPlayed = "";
 
-    for (const cat of Object.keys(categoryDefinitions) as CategoryKey[]) {
+    for (const cat of editableCategories) {
       const entry = findPlayerEntry(entries[cat], week, player);
       if (entry) {
         for (const key of Object.keys(next[cat])) {
@@ -904,7 +957,7 @@ export default function Home() {
 
   function handleModalSave() {
     // save for each category
-    for (const cat of Object.keys(categoryDefinitions) as CategoryKey[]) {
+    for (const cat of editableCategories) {
       const values = { ...(modalValues[cat] ?? {}) };
 
       values.gamesPlayed = modalGamesPlayed;
@@ -1031,8 +1084,7 @@ export default function Home() {
         <header className="flex flex-col gap-2 border-b border-slate-300 pb-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <h1 className="text-2xl font-semibold tracking-tight text-slate-950">Football Stats Sheet</h1>
-              <p className="text-sm text-slate-600">Select a week or switch to all-time for season totals.</p>
+              <h1 className="text-3xl font-bold tracking-tight text-indigo-600">MayFL Stats</h1>
             </div>
 
             <label className="text-sm font-medium text-slate-700">
@@ -1080,7 +1132,7 @@ export default function Home() {
               >
                 {teamOptions.map((t) => (
                   <option key={t} value={t}>
-                    {t === "all" ? "All teams" : t}
+                    {t === "all" ? "All teams" : t === "MM" ? "Minneapolis  Mahesh" : t ==="SFFS"? "SF Flying Squirrels" : t ==="PGP" ? "Pyongyang Giant Pandas" : t === "TAT" ? "Tel Aviv Teletubbies" : t === "SSQT" ? "Seattle Side Quest Turtles":t}
                   </option>
                 ))}
               </select>
@@ -1094,7 +1146,7 @@ export default function Home() {
                   type="button"
                   onClick={() => setActiveCategory(categoryKey)}
                   className={`rounded border px-2 py-1 text-sm font-medium ${
-                    isActive ? "border-slate-900 bg-slate-900 text-white" : "border-slate-300 text-slate-700"
+                    isActive ? "border-indigo-600 bg-indigo-600 text-white" : "border-slate-300 text-slate-700 hover:border-indigo-400"
                   }`}
                 >
                   {categoryDefinitions[categoryKey].label}
@@ -1104,7 +1156,7 @@ export default function Home() {
             <button
               type="button"
               onClick={requestAddModal}
-              className="ml-auto rounded border px-2 py-1 text-sm font-medium border-slate-300 text-slate-700"
+              className="ml-auto rounded border px-2 py-1 text-sm font-medium border-indigo-300 bg-indigo-50 text-indigo-700 hover:bg-indigo-100"
             >
               + Add Week Stats
             </button>
@@ -1112,39 +1164,50 @@ export default function Home() {
 
 
           <div className="overflow-x-auto">
-            <table className="min-w-full border-collapse text-sm">
+            <table className="min-w-full border-collapse text-sm table-fixed">
               <thead>
                 <tr className="bg-slate-100 text-slate-700">
+                  {activeCategory === "combined" ? (
+                    <th className="border border-slate-300 p-0 text-left font-medium px-2 py-1 w-12">#</th>
+                  ) : null}
                   {definition.columns.map((column) => {
-                    const currentSort = sortState[activeCategory];
-                    const isSorted = currentSort.key === column.key;
+                    const isSorted = currentSortForActive.key === column.key;
+
+                    const widthClass = column.key === "player" ? "w-48" : column.key === "fantasyPts" ? "w-36 text-right" : "";
 
                     return (
-                      <th key={column.key} className="border border-slate-300 p-0 text-left font-medium">
+                      <th key={column.key} className={`border border-slate-300 p-0 text-left font-medium ${widthClass}`}>
                         <button
                           type="button"
-                          onClick={() => handleSort(column.key)}
-                          className="flex w-full items-center justify-between gap-2 px-2 py-1 text-left"
+                          onClick={activeCategory === "combined" ? undefined : () => handleSort(column.key)}
+                          className={`flex w-full items-center justify-between gap-2 px-2 py-1 text-left ${
+                            activeCategory === "combined" ? "cursor-default" : ""
+                          }`}
                         >
                           <span>{column.label}</span>
                           <span className="text-xs text-slate-500">
-                            {isSorted ? (currentSort.direction === "asc" ? "▲" : "▼") : ""}
+                            {isSorted ? (currentSortForActive.direction === "asc" ? "▲" : "▼") : ""}
                           </span>
                         </button>
                       </th>
                     );
                   })}
-                  {viewMode === "week" ? (
-                    <th className="border border-slate-300 px-2 py-1 text-left font-medium text-slate-700">Actions</th>
+                  {activeCategory !== "combined" ? (
+                    <th className="border border-slate-300 px-2 py-1 text-left font-medium text-slate-700 w-20">
+                      {viewMode === "week" ? "Actions" : "\u00A0"}
+                    </th>
                   ) : null}
                 </tr>
               </thead>
 
               <tbody>
                 {visibleRows.length > 0 ? (
-                  visibleRows.map((row) => {
+                  visibleRows.map((row, idx) => {
                     return (
                       <tr key={row.player} className="odd:bg-white even:bg-slate-50">
+                        {activeCategory === "combined" ? (
+                          <td className="border border-slate-300 px-2 py-1 font-medium text-slate-950">{idx + 1}</td>
+                        ) : null}
                         {definition.columns.map((column) => {
                           if (column.key === "player") {
                             return (
@@ -1169,15 +1232,19 @@ export default function Home() {
                             </td>
                           );
                         })}
-                        {viewMode === "week" ? (
+                        {activeCategory !== "combined" ? (
                           <td className="border border-slate-300 px-2 py-1 text-slate-500">
-                            <button
-                              type="button"
-                              onClick={() => requestEditModal(row.player)}
-                              className="rounded border border-slate-300 px-2 py-1 text-xs text-slate-700"
-                            >
-                              Edit
-                            </button>
+                            {viewMode === "week" ? (
+                              <button
+                                type="button"
+                                onClick={() => requestEditModal(row.player)}
+                                className="rounded border border-slate-300 px-2 py-1 text-xs text-slate-700"
+                              >
+                                Edit
+                              </button>
+                            ) : (
+                              <div className="rounded border border-slate-300 px-2 py-1 text-xs text-slate-700 invisible">&nbsp;</div>
+                            )}
                           </td>
                         ) : null}
                       </tr>
@@ -1185,7 +1252,12 @@ export default function Home() {
                   })
                 ) : (
                   <tr>
-                    <td className="border border-slate-300 px-3 py-6 text-slate-500" colSpan={definition.columns.length + (viewMode === "week" ? 1 : 0)}>
+                    <td
+                      className="border border-slate-300 px-3 py-6 text-slate-500"
+                      colSpan={
+                        definition.columns.length + (activeCategory === "combined" ? 1 : 0) + (viewMode === "week" && activeCategory !== "combined" ? 1 : 0)
+                      }
+                    >
                       No players with non-zero {definition.label.toLowerCase()} stats for this {viewMode === "week" ? currentWeek : "overall"} view.
                     </td>
                   </tr>
@@ -1289,31 +1361,43 @@ export default function Home() {
                   </label>
                 </div>
 
-                <div className="mt-4 space-y-4">
-                  {(Object.keys(categoryDefinitions) as CategoryKey[]).map((cat) => {
-                    const def = categoryDefinitions[cat];
-                    const baseCols = def.columns.filter(
-                      (c) => c.key !== "player" && c.key !== "fantasyPts" && c.key !== "gamesPlayed" && c.aggregation !== "ratio",
-                    );
+                <div className="mt-4">
+                  <div className="mb-3 flex flex-wrap gap-2">
+                    {editableCategories.map((cat) => {
+                      const def = categoryDefinitions[cat];
+                      const isActive = modalTab === cat;
+                      return (
+                        <button
+                          key={cat}
+                          type="button"
+                          onClick={() => setModalTab(cat)}
+                          className={`rounded border px-3 py-1 text-sm font-medium ${
+                            isActive ? "border-indigo-600 bg-indigo-600 text-white" : "border-slate-300 text-slate-700"
+                          }`}
+                        >
+                          {def.label}
+                        </button>
+                      );
+                    })}
+                  </div>
 
-                    return (
-                      <div key={cat} className="rounded border border-slate-200 p-3">
-                        <div className="mb-2 text-sm font-medium">{def.label}</div>
-                        <div className="grid gap-2 md:grid-cols-3">
-                          {baseCols.map((col) => (
-                            <label key={col.key} className="text-sm">
-                              {col.label}
-                              <input
-                                value={modalValues[cat]?.[col.key] ?? ""}
-                                onChange={(e) => setModalValues((cur) => ({ ...cur, [cat]: { ...(cur[cat] ?? {}), [col.key]: e.target.value } }))}
-                                className="mt-1 w-full rounded border px-2 py-1"
-                              />
-                            </label>
-                          ))}
-                        </div>
-                      </div>
-                    );
-                  })}
+                  <div className="rounded border border-slate-200 p-3">
+                    <div className="mb-2 text-sm font-medium">{categoryDefinitions[modalTab].label}</div>
+                    <div className="grid gap-2 md:grid-cols-3">
+                      {categoryDefinitions[modalTab].columns
+                        .filter((c) => c.key !== "player" && c.key !== "fantasyPts" && c.key !== "gamesPlayed" && c.aggregation !== "ratio")
+                        .map((col) => (
+                          <label key={col.key} className="text-sm">
+                            {col.label}
+                            <input
+                              value={modalValues[modalTab]?.[col.key] ?? ""}
+                              onChange={(e) => setModalValues((cur) => ({ ...cur, [modalTab]: { ...(cur[modalTab] ?? {}), [col.key]: e.target.value } }))}
+                              className="mt-1 w-full rounded border px-2 py-1"
+                            />
+                          </label>
+                        ))}
+                    </div>
+                  </div>
                 </div>
 
                 <div className="mt-4 flex justify-end gap-2">

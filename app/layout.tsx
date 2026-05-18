@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "League Stats Board",
+  title: "MayFL Stats",
   description:
     "A basic football league stats dashboard for tracking weekly and total stats across passing, rushing, receiving, and defensive categories.",
 };
@@ -28,7 +28,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        {children}
+        <footer className="mt-auto border-t border-slate-200 py-4 text-center text-sm text-slate-500">
+          Made by Milav
+        </footer>
+      </body>
     </html>
   );
 }
