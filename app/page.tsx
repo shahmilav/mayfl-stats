@@ -972,6 +972,26 @@ export default function Home() {
     setIsModalOpen(false);
   }
 
+  function handleDeleteWeekStats(player: string, week: string) {
+    if (!confirm(`Delete stats for ${player} in ${week}? This cannot be undone.`)) {
+      return;
+    }
+
+    setEntries((current) => {
+      const next: Record<CategoryKey, StatEntry[]> = {
+        passing: current.passing.filter((e) => !(e.player === player && e.week === week)),
+        rushing: current.rushing.filter((e) => !(e.player === player && e.week === week)),
+        receiving: current.receiving.filter((e) => !(e.player === player && e.week === week)),
+        defensive: current.defensive.filter((e) => !(e.player === player && e.week === week)),
+        combined: (current.combined ?? []).filter((e) => !(e.player === player && e.week === week)),
+      };
+
+      return next;
+    });
+
+    setIsModalOpen(false);
+  }
+
   function handleAuthSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -1219,16 +1239,7 @@ export default function Home() {
 
                           return (
                             <td key={column.key} className="border border-slate-300 p-0">
-                                  {viewMode === "week" && column.aggregation !== "ratio" && column.key !== "fantasyPts" ? (
-                                    <input
-                                      value={row[column.key] ?? ""}
-                                      onChange={(event) => handleCellChange(row.player, column.key, event.target.value)}
-                                      inputMode={column.type === "number" ? "decimal" : "text"}
-                                      className="w-full bg-transparent px-2 py-1 text-slate-900 outline-none"
-                                    />
-                                  ) : (
-                                    <div className="px-2 py-1 text-slate-900">{row[column.key] ?? ""}</div>
-                                  )}
+                                          <div className="px-2 py-1 text-slate-900">{row[column.key] ?? ""}</div>
                             </td>
                           );
                         })}
@@ -1401,6 +1412,15 @@ export default function Home() {
                 </div>
 
                 <div className="mt-4 flex justify-end gap-2">
+                  {modalMode === "edit" ? (
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteWeekStats(modalPlayer, modalWeek)}
+                      className="rounded border px-3 py-2 text-red-700 hover:bg-red-50"
+                    >
+                      Delete
+                    </button>
+                  ) : null}
                   <button type="button" onClick={() => setIsModalOpen(false)} className="rounded border px-3 py-2">Cancel</button>
                   <button type="button" onClick={handleModalSave} className="rounded bg-slate-900 px-3 py-2 text-white">Save</button>
                 </div>
