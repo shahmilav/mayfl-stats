@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col">
         {children}
         <footer className="mt-auto border-t border-slate-200 py-4 text-center text-sm text-slate-500">
-          Made by Milav
+          Made by Milav Shah
         </footer>
       </body>
     </html>
