@@ -62,6 +62,7 @@ const categoryDefinitions: Record<CategoryKey, CategoryDefinition> = {
       { key: "tds", label: "TDs", type: "number", aggregation: "sum" },
       { key: "ints", label: "INT", type: "number", aggregation: "sum" },
       { key: "fantasyPts", label: "Passing Fantasy Pts", type: "number", aggregation: "sum" },
+      { key: "yardsPerGame", label: "Yards/Game", type: "number", aggregation: "text" },
     ],
     starterEntries: [
       {
@@ -114,6 +115,7 @@ const categoryDefinitions: Record<CategoryKey, CategoryDefinition> = {
         ratio: { numerator: "rushYards", denominator: "carries", decimals: 1 },
       },
       { key: "fantasyPts", label: "Rushing Fantasy Pts", type: "number", aggregation: "sum" },
+      { key: "rushYardsPerGame", label: "Rush Yds/Game", type: "number", aggregation: "text" },
     ],
     starterEntries: [
       {
@@ -147,6 +149,7 @@ const categoryDefinitions: Record<CategoryKey, CategoryDefinition> = {
         ratio: { numerator: "receptionYards", denominator: "receptions", decimals: 1 },
       },
       { key: "fantasyPts", label: "Receiving Fantasy Pts", type: "number", aggregation: "sum" },
+      { key: "receptionYardsPerGame", label: "Rec Yds/Game", type: "number", aggregation: "text" },
     ],
     starterEntries: [
       {
@@ -319,6 +322,8 @@ function aggregatePlayerEntries(category: CategoryKey, player: string, entries: 
     }
   }
 
+  const entryCount = playerEntries.length;
+
   const row: Record<string, string> = { player };
 
   for (const column of definition.columns) {
@@ -343,6 +348,18 @@ function aggregatePlayerEntries(category: CategoryKey, player: string, entries: 
       const multiplier = column.ratio.multiplier ?? 1;
       const value = denominator === 0 ? 0 : (numerator / denominator) * multiplier;
       row[column.key] = formatNumber(value, column.ratio.decimals ?? 1);
+    }
+  }
+
+  if (entryCount > 0) {
+    if (category === "passing") {
+      row["yardsPerGame"] = formatNumber((totals["yards"] ?? 0) / entryCount, 1);
+    }
+    if (category === "rushing") {
+      row["rushYardsPerGame"] = formatNumber((totals["rushYards"] ?? 0) / entryCount, 1);
+    }
+    if (category === "receiving") {
+      row["receptionYardsPerGame"] = formatNumber((totals["receptionYards"] ?? 0) / entryCount, 1);
     }
   }
 
@@ -409,6 +426,7 @@ export function StatsView() {
   const [databaseLoadError, setDatabaseLoadError] = useState<string | null>(null);
   const [persistenceError, setPersistenceError] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("passing");
+  const [showPerGame, setShowPerGame] = useState(false);
 
   useEffect(() => {
     let mounted = true;
@@ -673,28 +691,39 @@ export function StatsView() {
         if (activeCategory === "combined") {
           if (viewMode === "week") {
             let total = 0;
+            let games = 0;
             for (const cat of editableCategories) {
               for (const e of entries[cat]) {
                 if (e.player === player && e.week === currentWeek) {
                   total += toNumber(e.values?.fantasyPts ?? "0");
+                  const gp = toNumber(e.values?.gamesPlayed ?? "0");
+                  if (gp > games) games = gp;
                 }
               }
             }
 
-            const row = { player, fantasyPts: formatNumber(total, 2) } as Record<string, string>;
+            const value = showPerGame && games > 0 ? total / games : total;
+            const row = { player, fantasyPts: formatNumber(value, 2) } as Record<string, string>;
             return isBlankPlayerRow(row, categoryDefinitions.combined.columns) ? null : row;
           }
 
           let total = 0;
+          let games = 0;
+          const countedWeeks = new Set<string>();
           for (const cat of editableCategories) {
             for (const e of entries[cat]) {
               if (e.player === player) {
                 total += toNumber(e.values?.fantasyPts ?? "0");
+                if (!countedWeeks.has(e.week)) {
+                  countedWeeks.add(e.week);
+                  games += toNumber(e.values?.gamesPlayed ?? "0");
+                }
               }
             }
           }
 
-          const row = { player, fantasyPts: formatNumber(total, 2) } as Record<string, string>;
+          const value = showPerGame && games > 0 ? total / games : total;
+          const row = { player, fantasyPts: formatNumber(value, 2) } as Record<string, string>;
           return isBlankPlayerRow(row, categoryDefinitions.combined.columns) ? null : row;
         }
 
@@ -762,7 +791,7 @@ export function StatsView() {
   const [modalTab, setModalTab] = useState<CategoryKey>(editableCategories[0]);
   const emptyCategoryValues = (cat: CategoryKey) => {
     const cols = categoryDefinitions[cat].columns.filter(
-      (c) => c.key !== "player" && c.key !== "fantasyPts" && c.aggregation !== "ratio",
+      (c) => c.key !== "player" && c.key !== "fantasyPts" && c.aggregation !== "ratio" && !c.key.endsWith("PerGame"),
     );
     return Object.fromEntries(cols.map((c) => [c.key, ""])) as Record<string, string>;
   };
@@ -1031,6 +1060,17 @@ export function StatsView() {
             ))}
           </select>
         </label>
+        {activeCategory === "combined" ? (
+          <label className="flex items-center gap-2 text-sm text-slate-700">
+            <input
+              type="checkbox"
+              checked={showPerGame}
+              onChange={(e) => setShowPerGame(e.target.checked)}
+              className="rounded"
+            />
+            Pts / Games Played
+          </label>
+        ) : null}
       </div>
 
       {persistenceError ? (
@@ -1092,7 +1132,7 @@ export function StatsView() {
                 {activeCategory === "combined" ? (
                   <th className="border border-slate-300 p-0 text-left font-medium px-2 py-1 w-12">#</th>
                 ) : null}
-                {definition.columns.map((column) => {
+                {definition.columns.filter((c) => viewMode !== "week" || !c.key.endsWith("PerGame")).map((column) => {
                   const isSorted = currentSortForActive.key === column.key;
 
                   const widthClass = column.key === "player" ? "w-48" : column.key === "fantasyPts" ? "w-36 text-right" : "";
@@ -1105,7 +1145,7 @@ export function StatsView() {
                         className={`flex w-full items-center justify-between gap-2 px-2 py-1 text-left ${activeCategory === "combined" ? "cursor-default" : ""
                           }`}
                       >
-                        <span>{column.label}</span>
+                        <span>{column.key === "fantasyPts" && activeCategory === "combined" && showPerGame ? "Pts / Game" : column.label}</span>
                         <span className="text-xs text-slate-500">
                           {isSorted ? (currentSortForActive.direction === "asc" ? "▲" : "▼") : ""}
                         </span>
@@ -1129,7 +1169,7 @@ export function StatsView() {
                       {activeCategory === "combined" ? (
                         <td className="border border-slate-300 px-2 py-1 font-medium text-slate-950">{idx + 1}</td>
                       ) : null}
-                      {definition.columns.map((column) => {
+                {definition.columns.filter((c) => viewMode !== "week" || !c.key.endsWith("PerGame")).map((column) => {
                         if (column.key === "player") {
                           return (
                             <td key={column.key} className="border border-slate-300 px-2 py-1 font-medium text-slate-950">
@@ -1167,7 +1207,7 @@ export function StatsView() {
                   <td
                     className="border border-slate-300 px-3 py-6 text-slate-500"
                     colSpan={
-                      definition.columns.length + (activeCategory === "combined" ? 1 : 0) + (viewMode === "week" && activeCategory !== "combined" ? 1 : 0)
+                      definition.columns.filter((c) => viewMode !== "week" || !c.key.endsWith("PerGame")).length + (activeCategory === "combined" ? 1 : 0) + (viewMode === "week" && activeCategory !== "combined" ? 1 : 0)
                     }
                   >
                     No players with non-zero {definition.label.toLowerCase()} stats for this {viewMode === "week" ? currentWeek : "overall"} view.
@@ -1286,7 +1326,7 @@ export function StatsView() {
                   <div className="mb-2 text-sm font-medium">{categoryDefinitions[modalTab].label}</div>
                   <div className="grid gap-2 md:grid-cols-3">
                     {categoryDefinitions[modalTab].columns
-                      .filter((c) => c.key !== "player" && c.key !== "fantasyPts" && c.aggregation !== "ratio")
+                      .filter((c) => c.key !== "player" && c.key !== "fantasyPts" && c.aggregation !== "ratio" && !c.key.endsWith("PerGame"))
                       .map((col) => (
                         <label key={col.key} className="text-sm">
                           {col.label}

@@ -34,7 +34,12 @@ export function DraftBoardView() {
                   return (
                     <td key={player} className="border border-slate-300 p-0 relative">
                       <span className="absolute top-0 left-0 text-xs font-bold text-emerald-500 leading-none px-0.5">{pickNumber}</span>
-                      <div className="px-2 py-3 text-base text-slate-900 text-center">{player}</div>
+                      <div className="px-2 py-3 text-base text-slate-900 text-center">
+                        {player}
+                        {player === "Sai Polepalle" ? (
+                          <div className="text-[10px] text-slate-400 font-normal mt-0.5 leading-tight">originally Romit Kundu (swapped)</div>
+                        ) : null}
+                      </div>
                     </td>
                   );
                 })}
