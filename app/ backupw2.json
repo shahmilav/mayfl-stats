@@ -1,0 +1,1793 @@
+{
+  "entries": {
+    "passing": [
+      {
+        "id": "1779064554904-19qlet6",
+        "week": "Week 1",
+        "player": "Adi Rath",
+        "values": {
+          "tds": "7",
+          "ints": "1",
+          "yards": "312",
+          "longest": "38",
+          "gamesPlayed": "1",
+          "passesAttempted": "47",
+          "passesCompleted": "33"
+        }
+      },
+      {
+        "id": "week1-pass-chase-lau",
+        "week": "Week 1",
+        "player": "Chase Lau",
+        "values": {
+          "tds": "5",
+          "ints": "1",
+          "yards": "272",
+          "longest": "45",
+          "gamesPlayed": "1",
+          "passesAttempted": "35",
+          "passesCompleted": "25"
+        }
+      },
+      {
+        "id": "week1-pass-pranshu-desai",
+        "week": "Week 1",
+        "player": "Pranshu Desai",
+        "values": {
+          "tds": "5",
+          "ints": "1",
+          "yards": "224",
+          "longest": "25",
+          "gamesPlayed": "1",
+          "passesAttempted": "24",
+          "passesCompleted": "17"
+        }
+      },
+      {
+        "id": "week1-pass-shubham-sharma",
+        "week": "Week 1",
+        "player": "Shubham Sharma",
+        "values": {
+          "tds": "1",
+          "ints": "1",
+          "yards": "34",
+          "longest": "30",
+          "gamesPlayed": "1",
+          "passesAttempted": "3",
+          "passesCompleted": "2"
+        }
+      },
+      {
+        "id": "week1-pass-sagar-gutti",
+        "week": "Week 1",
+        "player": "Sagar Gutti",
+        "values": {
+          "tds": "2",
+          "ints": "0",
+          "yards": "126",
+          "longest": "48",
+          "gamesPlayed": "1",
+          "passesAttempted": "10",
+          "passesCompleted": "5"
+        }
+      },
+      {
+        "id": "week1-pass-kk",
+        "week": "Week 1",
+        "player": "KK",
+        "values": {
+          "tds": "1",
+          "ints": "0",
+          "yards": "122",
+          "longest": "47",
+          "gamesPlayed": "1",
+          "passesAttempted": "17",
+          "passesCompleted": "10"
+        }
+      },
+      {
+        "id": "week1-pass-adi-pochinapeddi",
+        "week": "Week 1",
+        "player": "Adi Pochinapeddi",
+        "values": {
+          "tds": "2",
+          "ints": "0",
+          "yards": "109",
+          "longest": "30",
+          "gamesPlayed": "1",
+          "passesAttempted": "18",
+          "passesCompleted": "7"
+        }
+      },
+      {
+        "id": "1779113884485-8a6g9xj",
+        "week": "Week 1",
+        "player": "Aditya Pochinapeddi",
+        "values": {
+          "tds": "2",
+          "ints": "0",
+          "yards": "109",
+          "longest": "30",
+          "gamesPlayed": "1",
+          "passesAttempted": "18",
+          "passesCompleted": "7"
+        }
+      },
+      {
+        "id": "1779114067119-z1w1wo5",
+        "week": "Week 2",
+        "player": "Manu Tadapathri",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779114250904-z5wcgtr",
+        "week": "Week 2",
+        "player": "Pranshu Desai",
+        "values": {
+          "tds": "5",
+          "ints": "2",
+          "yards": "209",
+          "longest": "44",
+          "gamesPlayed": "1",
+          "passesAttempted": "22",
+          "passesCompleted": "15"
+        }
+      },
+      {
+        "id": "1779114326087-0ygfh8h",
+        "week": "Week 2",
+        "player": "Adi Rath",
+        "values": {
+          "tds": "5",
+          "ints": "3",
+          "yards": "164",
+          "longest": "26",
+          "gamesPlayed": "1",
+          "passesAttempted": "24",
+          "passesCompleted": "14"
+        }
+      },
+      {
+        "id": "1779114391838-lutc70x",
+        "week": "Week 2",
+        "player": "Runbier Sabhlok",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779114446104-lv8rl3q",
+        "week": "Week 2",
+        "player": "Wallace Snow",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779114710805-opjjeji",
+        "week": "Week 2",
+        "player": "Shubham Sharma",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779114830541-kxcuy3w",
+        "week": "Week 2",
+        "player": "Abhi Naine",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779205373831-tnjyqim",
+        "week": "Week 2",
+        "player": "Chase Lau",
+        "values": {
+          "tds": "2",
+          "ints": "0",
+          "yards": "132",
+          "longest": "20",
+          "gamesPlayed": "1",
+          "passesAttempted": "12",
+          "passesCompleted": "7"
+        }
+      },
+      {
+        "id": "1779205421880-f92x892",
+        "week": "Week 2",
+        "player": "Ben Goodfriend",
+        "values": {
+          "tds": "3",
+          "ints": "2",
+          "yards": "207",
+          "longest": "45",
+          "gamesPlayed": "1",
+          "passesAttempted": "22",
+          "passesCompleted": "13"
+        }
+      },
+      {
+        "id": "1779205439496-ixw3wh9",
+        "week": "Week 2",
+        "player": "Abeer Singh",
+        "values": {
+          "tds": "0",
+          "ints": "0",
+          "yards": "0",
+          "longest": "0",
+          "gamesPlayed": "1",
+          "passesAttempted": "2",
+          "passesCompleted": "0"
+        }
+      },
+      {
+        "id": "1779205615161-ebqiik5",
+        "week": "Week 1",
+        "player": "Varun Panalla",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779209592413-7qefsba",
+        "week": "Week 2",
+        "player": "Adi Mohan",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779209879713-bhwdvfl",
+        "week": "Week 2",
+        "player": "Brian Lu",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779209896229-a4xve83",
+        "week": "Week 2",
+        "player": "Dwij Sheth",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779209937612-4tnoj2k",
+        "week": "Week 2",
+        "player": "Eshan Iyer",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779210051046-e92bcqj",
+        "week": "Week 2",
+        "player": "Jesh Selvaraj",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779210083429-i4n6ox1",
+        "week": "Week 2",
+        "player": "John Bridgeford",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779210116495-cdvj3p1",
+        "week": "Week 2",
+        "player": "Lokesh Kolisetty",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779210134045-vyu900p",
+        "week": "Week 2",
+        "player": "Maanas Devulapalli",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779210294529-hk20f3v",
+        "week": "Week 2",
+        "player": "Milav Shah",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779210313529-p7ocpc4",
+        "week": "Week 2",
+        "player": "Nick Scarpa",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      },
+      {
+        "id": "1779210329345-mfpeazu",
+        "week": "Week 2",
+        "player": "Pranshu Agarwal",
+        "values": {
+          "tds": "",
+          "ints": "",
+          "yards": "",
+          "longest": "",
+          "gamesPlayed": "1",
+          "passesAttempted": "",
+          "passesCompleted": ""
+        }
+      }
+    ],
+    "rushing": [
+      {
+        "id": "1779064554904-u8jomqo",
+        "week": "Week 1",
+        "player": "Adi Rath",
+        "values": {
+          "carries": "2",
+          "longest": "10",
+          "rushYards": "19",
+          "touchdowns": "1",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-rush-chase-lau",
+        "week": "Week 1",
+        "player": "Chase Lau",
+        "values": {
+          "carries": "9",
+          "longest": "30",
+          "rushYards": "90",
+          "touchdowns": "2",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-rush-pranshu-desai",
+        "week": "Week 1",
+        "player": "Pranshu Desai",
+        "values": {
+          "carries": "6",
+          "longest": "49",
+          "rushYards": "77",
+          "touchdowns": "2",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-rush-varun-pannala",
+        "week": "Week 1",
+        "player": "Varun Pannala",
+        "values": {
+          "carries": "3",
+          "longest": "45",
+          "rushYards": "68",
+          "touchdowns": "2",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-rush-adi-pochinapeddi",
+        "week": "Week 1",
+        "player": "Adi Pochinapeddi",
+        "values": {
+          "carries": "3",
+          "longest": "8",
+          "rushYards": "14",
+          "touchdowns": "1",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-rush-manu-tadapathri",
+        "week": "Week 1",
+        "player": "Manu Tadapathri",
+        "values": {
+          "carries": "1",
+          "longest": "5",
+          "rushYards": "5",
+          "touchdowns": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-rush-milav-shah",
+        "week": "Week 1",
+        "player": "Milav Shah",
+        "values": {
+          "carries": "1",
+          "longest": "1",
+          "rushYards": "1",
+          "touchdowns": "1",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-rush-dwij-sheth",
+        "week": "Week 1",
+        "player": "Dwij Sheth",
+        "values": {
+          "carries": "1",
+          "longest": "-4",
+          "rushYards": "-4",
+          "touchdowns": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779113884485-7nlvrj2",
+        "week": "Week 1",
+        "player": "Aditya Pochinapeddi",
+        "values": {
+          "carries": "3",
+          "longest": "8",
+          "rushYards": "14",
+          "touchdowns": "1",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114067119-u14auq4",
+        "week": "Week 2",
+        "player": "Manu Tadapathri",
+        "values": {
+          "carries": "1",
+          "longest": "4",
+          "rushYards": "4",
+          "touchdowns": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114250904-sa7gtav",
+        "week": "Week 2",
+        "player": "Pranshu Desai",
+        "values": {
+          "carries": "3",
+          "longest": "12",
+          "rushYards": "24",
+          "touchdowns": "1",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114326087-kbwo630",
+        "week": "Week 2",
+        "player": "Adi Rath",
+        "values": {
+          "carries": "1",
+          "longest": "4",
+          "rushYards": "4",
+          "touchdowns": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114391838-ecn3xdb",
+        "week": "Week 2",
+        "player": "Runbier Sabhlok",
+        "values": {
+          "carries": "1",
+          "longest": "0",
+          "rushYards": "6",
+          "touchdowns": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114446104-vrbm8ig",
+        "week": "Week 2",
+        "player": "Wallace Snow",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114710805-cwza7q3",
+        "week": "Week 2",
+        "player": "Shubham Sharma",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114830541-dvy2i8i",
+        "week": "Week 2",
+        "player": "Abhi Naine",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779205400481-ckia1zs",
+        "week": "Week 2",
+        "player": "Chase Lau",
+        "values": {
+          "carries": "5",
+          "longest": "45",
+          "rushYards": "103",
+          "touchdowns": "4",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779205421880-gmrwerw",
+        "week": "Week 2",
+        "player": "Ben Goodfriend",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779205439496-j6ynif1",
+        "week": "Week 2",
+        "player": "Abeer Singh",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779205615162-tfvzuoi",
+        "week": "Week 1",
+        "player": "Varun Panalla",
+        "values": {
+          "carries": "3",
+          "longest": "45",
+          "rushYards": "68",
+          "touchdowns": "2",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779209592413-cekx1ec",
+        "week": "Week 2",
+        "player": "Adi Mohan",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779209879713-93xq1dn",
+        "week": "Week 2",
+        "player": "Brian Lu",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779209896229-zpar3r5",
+        "week": "Week 2",
+        "player": "Dwij Sheth",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779209937612-jmj77fb",
+        "week": "Week 2",
+        "player": "Eshan Iyer",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210051046-3clk4ik",
+        "week": "Week 2",
+        "player": "Jesh Selvaraj",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210083429-g554c25",
+        "week": "Week 2",
+        "player": "John Bridgeford",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210116495-94s5bx4",
+        "week": "Week 2",
+        "player": "Lokesh Kolisetty",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210134045-nlyu465",
+        "week": "Week 2",
+        "player": "Maanas Devulapalli",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210294529-4em90th",
+        "week": "Week 2",
+        "player": "Milav Shah",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210313529-ag82q62",
+        "week": "Week 2",
+        "player": "Nick Scarpa",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210329345-bwe4s4t",
+        "week": "Week 2",
+        "player": "Pranshu Agarwal",
+        "values": {
+          "carries": "",
+          "longest": "",
+          "rushYards": "",
+          "touchdowns": "",
+          "gamesPlayed": "1"
+        }
+      }
+    ],
+    "combined": [],
+    "defensive": [
+      {
+        "id": "1779064554904-mpt1q8j",
+        "week": "Week 1",
+        "player": "Adi Rath",
+        "values": {
+          "pds": "3",
+          "tds": "0",
+          "ints": "0",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-sagar-gutti",
+        "week": "Week 1",
+        "player": "Sagar Gutti",
+        "values": {
+          "pds": "2",
+          "tds": "0",
+          "ints": "1",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-aditya-pochinapeddi",
+        "week": "Week 1",
+        "player": "Aditya Pochinapeddi",
+        "values": {
+          "pds": "0",
+          "tds": "0",
+          "ints": "1",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-chase-lau",
+        "week": "Week 1",
+        "player": "Chase Lau",
+        "values": {
+          "pds": "0",
+          "tds": "0",
+          "ints": "1",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-dwij-sheth",
+        "week": "Week 1",
+        "player": "Dwij Sheth",
+        "values": {
+          "pds": "2",
+          "tds": "0",
+          "ints": "1",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-abhi-naine",
+        "week": "Week 1",
+        "player": "Abhi Naine",
+        "values": {
+          "pds": "3",
+          "tds": "0",
+          "ints": "0",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-varun-pannala",
+        "week": "Week 1",
+        "player": "Varun Pannala",
+        "values": {
+          "pds": "3",
+          "tds": "0",
+          "ints": "0",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-jesh-selvaraj",
+        "week": "Week 1",
+        "player": "Jesh Selvaraj",
+        "values": {
+          "pds": "2",
+          "tds": "0",
+          "ints": "0",
+          "sacks": "1",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-shubham-sharma",
+        "week": "Week 1",
+        "player": "Shubham Sharma",
+        "values": {
+          "pds": "1",
+          "tds": "0",
+          "ints": "0",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-pranshu-desai",
+        "week": "Week 1",
+        "player": "Pranshu Desai",
+        "values": {
+          "pds": "1",
+          "tds": "0",
+          "ints": "0",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-wallace-snow",
+        "week": "Week 1",
+        "player": "Wallace Snow",
+        "values": {
+          "pds": "1",
+          "tds": "0",
+          "ints": "0",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-eshan-iyer",
+        "week": "Week 1",
+        "player": "Eshan Iyer",
+        "values": {
+          "pds": "1",
+          "tds": "0",
+          "ints": "0",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "week1-def-milav-shah",
+        "week": "Week 1",
+        "player": "Milav Shah",
+        "values": {
+          "pds": "0",
+          "tds": "0",
+          "ints": "0",
+          "sacks": "2",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114067119-ruzrch8",
+        "week": "Week 2",
+        "player": "Manu Tadapathri",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114250904-vahnhka",
+        "week": "Week 2",
+        "player": "Pranshu Desai",
+        "values": {
+          "pds": "0",
+          "tds": "0",
+          "ints": "0",
+          "sacks": "0",
+          "fumbles": "0",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114326087-imh0wcm",
+        "week": "Week 2",
+        "player": "Adi Rath",
+        "values": {
+          "pds": "1",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114391838-f9mf73a",
+        "week": "Week 2",
+        "player": "Runbier Sabhlok",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114446104-2xprwzu",
+        "week": "Week 2",
+        "player": "Wallace Snow",
+        "values": {
+          "pds": "2",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114710806-8trlx92",
+        "week": "Week 2",
+        "player": "Shubham Sharma",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779114830541-g024ca8",
+        "week": "Week 2",
+        "player": "Abhi Naine",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779205400481-9kdim32",
+        "week": "Week 2",
+        "player": "Chase Lau",
+        "values": {
+          "pds": "1",
+          "tds": "",
+          "ints": "1",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779205421880-fejukaz",
+        "week": "Week 2",
+        "player": "Ben Goodfriend",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779205439496-pn9ztg0",
+        "week": "Week 2",
+        "player": "Abeer Singh",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779205615162-9rdqfh0",
+        "week": "Week 1",
+        "player": "Varun Panalla",
+        "values": {
+          "pds": "3",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779209592413-hlnrfsr",
+        "week": "Week 2",
+        "player": "Adi Mohan",
+        "values": {
+          "pds": "1",
+          "tds": "",
+          "ints": "1",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779209879713-zpp3apv",
+        "week": "Week 2",
+        "player": "Brian Lu",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779209896229-curehxw",
+        "week": "Week 2",
+        "player": "Dwij Sheth",
+        "values": {
+          "pds": "2",
+          "tds": "",
+          "ints": "3",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779209937612-0kxq75v",
+        "week": "Week 2",
+        "player": "Eshan Iyer",
+        "values": {
+          "pds": "1",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210051046-qnzz8gm",
+        "week": "Week 2",
+        "player": "Jesh Selvaraj",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210083429-tj8wd7x",
+        "week": "Week 2",
+        "player": "John Bridgeford",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210116495-krhco91",
+        "week": "Week 2",
+        "player": "Lokesh Kolisetty",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210134045-kliqak4",
+        "week": "Week 2",
+        "player": "Maanas Devulapalli",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210294529-gpirrhs",
+        "week": "Week 2",
+        "player": "Milav Shah",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210313529-3psiqp3",
+        "week": "Week 2",
+        "player": "Nick Scarpa",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      },
+      {
+        "id": "1779210329345-8aqda6k",
+        "week": "Week 2",
+        "player": "Pranshu Agarwal",
+        "values": {
+          "pds": "",
+          "tds": "",
+          "ints": "",
+          "sacks": "",
+          "fumbles": "",
+          "gamesPlayed": "1"
+        }
+      }
+    ],
+    "receiving": [
+      {
+        "id": "1779064554904-xy18ik6",
+        "week": "Week 1",
+        "player": "Adi Rath",
+        "values": {
+          "longest": "4",
+          "receptions": "1",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "4"
+        }
+      },
+      {
+        "id": "week1-rec-keshav-batra",
+        "week": "Week 1",
+        "player": "Keshav Batra",
+        "values": {
+          "longest": "38",
+          "receptions": "13",
+          "touchdowns": "3",
+          "gamesPlayed": "1",
+          "receptionYards": "173"
+        }
+      },
+      {
+        "id": "week1-rec-adi-mohan",
+        "week": "Week 1",
+        "player": "Adi Mohan",
+        "values": {
+          "longest": "45",
+          "receptions": "11",
+          "touchdowns": "4",
+          "gamesPlayed": "1",
+          "receptionYards": "167"
+        }
+      },
+      {
+        "id": "week1-rec-abhi-naine",
+        "week": "Week 1",
+        "player": "Abhi Naine",
+        "values": {
+          "longest": "38",
+          "receptions": "9",
+          "touchdowns": "5",
+          "gamesPlayed": "1",
+          "receptionYards": "164"
+        }
+      },
+      {
+        "id": "week1-rec-shubham-sharma",
+        "week": "Week 1",
+        "player": "Shubham Sharma",
+        "values": {
+          "longest": "31",
+          "receptions": "13",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "117"
+        }
+      },
+      {
+        "id": "week1-rec-runbier-sabhlok",
+        "week": "Week 1",
+        "player": "Runbier Sabhlok",
+        "values": {
+          "longest": "22",
+          "receptions": "13",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "116"
+        }
+      },
+      {
+        "id": "week1-rec-varun-pannala",
+        "week": "Week 1",
+        "player": "Varun Pannala",
+        "values": {
+          "longest": "48",
+          "receptions": "4",
+          "touchdowns": "2",
+          "gamesPlayed": "1",
+          "receptionYards": "107"
+        }
+      },
+      {
+        "id": "week1-rec-milav-shah",
+        "week": "Week 1",
+        "player": "Milav Shah",
+        "values": {
+          "longest": "15",
+          "receptions": "11",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "107"
+        }
+      },
+      {
+        "id": "week1-rec-manu-tadapathri",
+        "week": "Week 1",
+        "player": "Manu Tadapathri",
+        "values": {
+          "longest": "29",
+          "receptions": "5",
+          "touchdowns": "4",
+          "gamesPlayed": "1",
+          "receptionYards": "77"
+        }
+      },
+      {
+        "id": "week1-rec-wallace-snow",
+        "week": "Week 1",
+        "player": "Wallace Snow",
+        "values": {
+          "longest": "24",
+          "receptions": "6",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "71"
+        }
+      },
+      {
+        "id": "week1-rec-sagar-gutti",
+        "week": "Week 1",
+        "player": "Sagar Gutti",
+        "values": {
+          "longest": "30",
+          "receptions": "3",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "64"
+        }
+      },
+      {
+        "id": "week1-rec-jesh-selvaraj",
+        "week": "Week 1",
+        "player": "Jesh Selvaraj",
+        "values": {
+          "longest": "23",
+          "receptions": "3",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "43"
+        }
+      },
+      {
+        "id": "week1-rec-dwij-sheth",
+        "week": "Week 1",
+        "player": "Dwij Sheth",
+        "values": {
+          "longest": "19",
+          "receptions": "4",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "39"
+        }
+      },
+      {
+        "id": "week1-rec-pranshu-agarwal",
+        "week": "Week 1",
+        "player": "Pranshu Agarwal",
+        "values": {
+          "longest": "20",
+          "receptions": "2",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "25"
+        }
+      },
+      {
+        "id": "week1-rec-rohan-hota",
+        "week": "Week 1",
+        "player": "Rohan Hota",
+        "values": {
+          "longest": "10",
+          "receptions": "1",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "10"
+        }
+      },
+      {
+        "id": "week1-rec-aditya-pochinapeddi",
+        "week": "Week 1",
+        "player": "Aditya Pochinapeddi",
+        "values": {
+          "longest": "9",
+          "receptions": "1",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "9"
+        }
+      },
+      {
+        "id": "week1-rec-eshan-iyer",
+        "week": "Week 1",
+        "player": "Eshan Iyer",
+        "values": {
+          "longest": "4",
+          "receptions": "1",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "4"
+        }
+      },
+      {
+        "id": "week1-rec-kk",
+        "week": "Week 1",
+        "player": "KK",
+        "values": {
+          "longest": "2",
+          "receptions": "1",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "2"
+        }
+      },
+      {
+        "id": "1779114067119-ea0btlt",
+        "week": "Week 2",
+        "player": "Manu Tadapathri",
+        "values": {
+          "longest": "16",
+          "receptions": "8",
+          "touchdowns": "3",
+          "gamesPlayed": "1",
+          "receptionYards": "55"
+        }
+      },
+      {
+        "id": "1779114250904-a5tfthg",
+        "week": "Week 2",
+        "player": "Pranshu Desai",
+        "values": {
+          "longest": "",
+          "receptions": "",
+          "touchdowns": "",
+          "gamesPlayed": "1",
+          "receptionYards": ""
+        }
+      },
+      {
+        "id": "1779114326087-bskq6ja",
+        "week": "Week 2",
+        "player": "Adi Rath",
+        "values": {
+          "longest": "",
+          "receptions": "",
+          "touchdowns": "",
+          "gamesPlayed": "1",
+          "receptionYards": ""
+        }
+      },
+      {
+        "id": "1779114391838-t6n751z",
+        "week": "Week 2",
+        "player": "Runbier Sabhlok",
+        "values": {
+          "longest": "26",
+          "receptions": "6",
+          "touchdowns": "2",
+          "gamesPlayed": "1",
+          "receptionYards": "64"
+        }
+      },
+      {
+        "id": "1779114422237-rtq29qc",
+        "week": "Week 2",
+        "player": "Wallace Snow",
+        "values": {
+          "longest": "19",
+          "receptions": "2",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "21"
+        }
+      },
+      {
+        "id": "1779114710806-6mct3xb",
+        "week": "Week 2",
+        "player": "Shubham Sharma",
+        "values": {
+          "longest": "15",
+          "receptions": "5",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "48"
+        }
+      },
+      {
+        "id": "1779114815390-jm57hkx",
+        "week": "Week 3",
+        "player": "Abhi Naine",
+        "values": {
+          "longest": "21",
+          "receptions": "5",
+          "touchdowns": "1",
+          "gamesPlayed": "",
+          "receptionYards": "80"
+        }
+      },
+      {
+        "id": "1779114830541-btbf6yw",
+        "week": "Week 2",
+        "player": "Abhi Naine",
+        "values": {
+          "longest": "",
+          "receptions": "5",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "80"
+        }
+      },
+      {
+        "id": "1779205400481-panpvjc",
+        "week": "Week 2",
+        "player": "Chase Lau",
+        "values": {
+          "longest": "",
+          "receptions": "",
+          "touchdowns": "",
+          "gamesPlayed": "1",
+          "receptionYards": ""
+        }
+      },
+      {
+        "id": "1779205421880-7hp0scj",
+        "week": "Week 2",
+        "player": "Ben Goodfriend",
+        "values": {
+          "longest": "",
+          "receptions": "",
+          "touchdowns": "",
+          "gamesPlayed": "1",
+          "receptionYards": ""
+        }
+      },
+      {
+        "id": "1779205439496-k7kklin",
+        "week": "Week 2",
+        "player": "Abeer Singh",
+        "values": {
+          "longest": "5",
+          "receptions": "2",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "9"
+        }
+      },
+      {
+        "id": "1779205615162-6zwoln5",
+        "week": "Week 1",
+        "player": "Varun Panalla",
+        "values": {
+          "longest": "48",
+          "receptions": "4",
+          "touchdowns": "2",
+          "gamesPlayed": "1",
+          "receptionYards": "107"
+        }
+      },
+      {
+        "id": "1779209592413-u2c71mh",
+        "week": "Week 2",
+        "player": "Adi Mohan",
+        "values": {
+          "longest": "45",
+          "receptions": "4",
+          "touchdowns": "2",
+          "gamesPlayed": "1",
+          "receptionYards": "56"
+        }
+      },
+      {
+        "id": "1779209879713-z0egr9f",
+        "week": "Week 2",
+        "player": "Brian Lu",
+        "values": {
+          "longest": "5",
+          "receptions": "2",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "5"
+        }
+      },
+      {
+        "id": "1779209896229-onjgr24",
+        "week": "Week 2",
+        "player": "Dwij Sheth",
+        "values": {
+          "longest": "",
+          "receptions": "4",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "120"
+        }
+      },
+      {
+        "id": "1779209937612-leoo2hq",
+        "week": "Week 2",
+        "player": "Eshan Iyer",
+        "values": {
+          "longest": "25",
+          "receptions": "2",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "42"
+        }
+      },
+      {
+        "id": "1779210051046-ptaj3ub",
+        "week": "Week 2",
+        "player": "Jesh Selvaraj",
+        "values": {
+          "longest": "",
+          "receptions": "2",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "31"
+        }
+      },
+      {
+        "id": "1779210083429-c25j55i",
+        "week": "Week 2",
+        "player": "John Bridgeford",
+        "values": {
+          "longest": "36",
+          "receptions": "3",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "76"
+        }
+      },
+      {
+        "id": "1779210116495-m2h6o3h",
+        "week": "Week 2",
+        "player": "Lokesh Kolisetty",
+        "values": {
+          "longest": "20",
+          "receptions": "3",
+          "touchdowns": "2",
+          "gamesPlayed": "1",
+          "receptionYards": "34"
+        }
+      },
+      {
+        "id": "1779210134045-7ikgt6w",
+        "week": "Week 2",
+        "player": "Maanas Devulapalli",
+        "values": {
+          "longest": "45",
+          "receptions": "5",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "87"
+        }
+      },
+      {
+        "id": "1779210294529-4uycfo7",
+        "week": "Week 2",
+        "player": "Milav Shah",
+        "values": {
+          "longest": "20",
+          "receptions": "3",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "49"
+        }
+      },
+      {
+        "id": "1779210313529-rxs97z3",
+        "week": "Week 2",
+        "player": "Nick Scarpa",
+        "values": {
+          "longest": "24",
+          "receptions": "2",
+          "touchdowns": "0",
+          "gamesPlayed": "1",
+          "receptionYards": "40"
+        }
+      },
+      {
+        "id": "1779210329345-pntgkna",
+        "week": "Week 2",
+        "player": "Pranshu Agarwal",
+        "values": {
+          "longest": "0",
+          "receptions": "1",
+          "touchdowns": "1",
+          "gamesPlayed": "1",
+          "receptionYards": "30"
+        }
+      }
+    ]
+  },
+  "players": [
+    "KK",
+    "Sagar Gutti",
+    "Varun Panalla",
+    "Aditya Pochinapeddi",
+    "Keshav Batra",
+    "Rohan Hota",
+    "Chase Lau",
+    "Adi Mohan",
+    "Eshan Iyer",
+    "Pranshu Agarwal",
+    "Sai Polepalle",
+    "Milav Shah",
+    "Ben Goodfriend",
+    "Maanas Devulapalli",
+    "Abeer Singh",
+    "John Bridgeford",
+    "Brian Lu",
+    "Nick Scarpa",
+    "Pranshu Desai",
+    "Dwij Sheth",
+    "Wallace Snow",
+    "Manu Tadapathri",
+    "Jesh Selvaraj",
+    "Archyut Ravindran",
+    "Adi Rath",
+    "Runbier Sabhlok",
+    "Shubham Sharma",
+    "Abhi Naine",
+    "Andrew Lin",
+    "Lokesh Kolisetty"
+  ],
+  "viewMode": "week",
+  "sortState": {
+    "passing": { "key": "yards", "direction": "desc" },
+    "rushing": { "key": "player", "direction": "asc" },
+    "combined": { "key": "fantasyPts", "direction": "desc" },
+    "defensive": { "key": "ints", "direction": "desc" },
+    "receiving": { "key": "yards", "direction": "asc" }
+  },
+  "currentWeek": "Week 2"
+}
